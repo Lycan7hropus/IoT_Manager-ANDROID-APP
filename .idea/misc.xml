@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/zwo7a/AndroidStudioProjects/iotManager01/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.3723958333333333" />
+        <entry key="..\:/Users/zwo7a/AndroidStudioProjects/iotManager01/app/src/main/res/layout-w1240dp/activity_login2.xml" value="0.14792503346720215" />
+        <entry key="..\:/Users/zwo7a/AndroidStudioProjects/iotManager01/app/src/main/res/layout-w936dp/activity_login2.xml" value="0.17265625" />
+        <entry key="..\:/Users/zwo7a/AndroidStudioProjects/iotManager01/app/src/main/res/layout/activity_graph.xml" value="0.33" />
+        <entry key="..\:/Users/zwo7a/AndroidStudioProjects/iotManager01/app/src/main/res/layout/activity_login.xml" value="0.2971014492753623" />
+        <entry key="..\:/Users/zwo7a/AndroidStudioProjects/iotManager01/app/src/main/res/layout/activity_login2.xml" value="0.23020833333333332" />
+        <entry key="..\:/Users/zwo7a/AndroidStudioProjects/iotManager01/app/src/main/res/layout/activity_main.xml" value="0.2971014492753623" />
+        <entry key="..\:/Users/zwo7a/AndroidStudioProjects/iotManager01/app/src/main/res/layout/activity_register.xml" value="0.2971014492753623" />
+        <entry key="..\:/Users/zwo7a/AndroidStudioProjects/iotManager01/app/src/main/res/layout/activity_splash.xml" value="0.2971014492753623" />
+        <entry key="..\:/Users/zwo7a/AndroidStudioProjects/iotManager01/app/src/main/res/menu/example_menu.xml" value="0.35625" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

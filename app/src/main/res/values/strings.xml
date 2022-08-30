@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">iotManager01</string>
+    <string name="preference_file_key">TOKEN</string>
+    <string-array name="type_array">
+        <item>Temperature</item>
+        <item>Humidity</item>
+        <item>Pressure</item>
+
+    </string-array>
+</resources>
