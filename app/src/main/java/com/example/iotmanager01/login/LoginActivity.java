@@ -2,10 +2,15 @@ package com.example.iotmanager01.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.iotmanager01.R;
+import com.example.iotmanager01.graph.GraphActivity;
+import com.example.iotmanager01.main_page.MainPageActivity;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class LoginActivity extends AppCompatActivity implements LoginView{
@@ -54,12 +59,16 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     }
 
     @Override
-    public void errorView() {
-
+    public void errorView(String message) {
+        Log.d(TAG, "loginUser: error");
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void openGraphView() {
+    public void openMainPageView() {
+        Log.d(TAG, "loginUser: opengraphview");
+        Intent intent = new Intent(this, MainPageActivity.class);
+        startActivity(intent);
 
     }
 }

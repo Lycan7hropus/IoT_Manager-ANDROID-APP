@@ -5,6 +5,6 @@ public interface LoginView {
     String getPassword();
     void loggingInView();
     void loggedInView();
-    void errorView();
-    void openGraphView();
+    void errorView(String message);
+    void openMainPageView();
 }

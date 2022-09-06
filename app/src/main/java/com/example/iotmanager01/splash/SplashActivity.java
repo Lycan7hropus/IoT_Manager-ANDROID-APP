@@ -9,6 +9,8 @@ import com.example.iotmanager01.R;
 import com.example.iotmanager01.TokenRepository;
 import com.example.iotmanager01.graph.GraphActivity;
 import com.example.iotmanager01.login.LoginActivity;
+import com.example.iotmanager01.main_page.MainPageActivity;
+import com.example.iotmanager01.main_page.MainPageView;
 
 public class SplashActivity extends AppCompatActivity implements SplashView {
     private SplashPresenterImpl presenter;
@@ -33,8 +35,8 @@ public class SplashActivity extends AppCompatActivity implements SplashView {
     }
 
     @Override
-    public void openGraphView() {
-        Intent intent = new Intent(this, GraphActivity.class);
+    public void openMainPageView() {
+        Intent intent = new Intent(this, MainPageActivity.class);
         startActivity(intent);
     }
 }

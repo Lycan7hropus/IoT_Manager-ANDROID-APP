@@ -4,53 +4,81 @@ import android.content.Context;
 import android.util.Log;
 
 import com.example.iotmanager01.TokenRepository;
+import com.example.iotmanager01.api.model.AllDataResponse;
+import com.example.iotmanager01.api.model.InfoResponse;
+import com.example.iotmanager01.api.model.LoginResponse;
+import com.example.iotmanager01.login.RestClientCallback;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
+import java.util.List;
+
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RestClient implements Callback<LoginResponse> {
+public class RestClient {
     static final String BASE_URL = "http://sandbox.ct8.pl/";
     private static final String TAG = "TAGOWE";
-    TokenRepository token;
 
-    public void start(Context context, JsonLoginReqest jsonBody) {
+    RestClientCallback restClientCallback;
+    ApiInterface service;
 
-        token = TokenRepository.getInstance(context);
+    public void start() {
+
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(logging).build();
+
+
+
+
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl(BASE_URL).client(client)
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
-        ApiInterface service = retrofit.create(ApiInterface.class);
+        service = retrofit.create(ApiInterface.class);
 
 
-
-        Call<LoginResponse> call = service.postJson(jsonBody);
-
-
-        call.enqueue(this);
 
     }
 
+    public void callPostLogin( JsonLoginReqest jsonBody, Callback<LoginResponse> callback){
 
-    @Override
-    public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-        if(response.isSuccessful()) {
-            token.setToken(response.body().token);
-            Log.d(TAG, "S onResponse: " + token.getToken());
-            Log.d(TAG, "S onResponse: " + response.body().status);
+        Call<LoginResponse> call = service.postLogin(jsonBody);
 
-        } else {
-            Log.d(TAG, "E onResponse: " + response.errorBody());
+        call.enqueue(callback);
+    }
+
+    public void callGetUserInfo(String token, Callback<InfoResponse> callback){
+        Call<InfoResponse> call = service.getUserInfo(token);
+
+        call.enqueue(callback);
+    }
+
+    public void callGetALlMeasurements(String period, String id, String type, String token, Callback<List<AllDataResponse>> callback){
+        if(service == null){
+            Log.d(TAG, "callGetALlMeasurements: null service");
+        }else{
+            Call<List<AllDataResponse>> call = service.getAllMeasurements(period,id,type,token);
+            call.enqueue(callback);
         }
+        
+
+
     }
 
-    @Override
-    public void onFailure(Call<LoginResponse> call, Throwable t) {
-        Log.d(TAG, "onFailure: " + t.toString());
-    }
+
+
+
+
+
 }

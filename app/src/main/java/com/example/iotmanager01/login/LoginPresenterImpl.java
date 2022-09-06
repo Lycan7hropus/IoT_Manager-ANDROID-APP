@@ -5,9 +5,14 @@ import android.util.Log;
 
 import com.example.iotmanager01.TokenRepository;
 import com.example.iotmanager01.api.JsonLoginReqest;
+import com.example.iotmanager01.api.model.LoginResponse;
 import com.example.iotmanager01.api.RestClient;
 
-public class LoginPresenterImpl implements LoginPresenter{
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class LoginPresenterImpl implements LoginPresenter, Callback<LoginResponse> {
     private static final String TAG = "TAGOWE";
     LoginView loginView;
     TokenRepository tokenRepository;
@@ -28,8 +33,29 @@ public class LoginPresenterImpl implements LoginPresenter{
 
         JsonLoginReqest jsonBody = new JsonLoginReqest(loginView.getLogin(), loginView.getPassword());
 
-        restClient.start(context, jsonBody);
-        Log.d(TAG, "loginUser: " + tokenRepository.getToken().toString());
+        restClient.start();
+        restClient.callPostLogin(jsonBody, this);
 
+    }
+
+    @Override
+    public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+        if(response.isSuccessful()) {
+            if(response.body().getStatus().equals("success")){
+                tokenRepository.setToken(response.body().getToken());
+                loginView.openMainPageView();
+            }else{
+                loginView.errorView(response.body().getStatus().toString());
+            }
+
+        } else {
+            loginView.errorView("response unsuccessful");
+        }
+    }
+
+    @Override
+    public void onFailure(Call<LoginResponse> call, Throwable t) {
+        Log.d(TAG, "onFailure: " + call.toString());
+        loginView.errorView("onfailure");
     }
 }

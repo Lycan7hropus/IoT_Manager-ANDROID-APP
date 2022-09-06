@@ -24,7 +24,7 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/chart"
         app:layout_constraintEnd_toEndOf="@+id/chart"
         app:layout_constraintStart_toStartOf="@+id/chart"
@@ -39,31 +39,32 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chart"
+        app:selectionRequired="true"
         app:singleSelection="true">
 
         <Button
-            android:id="@+id/button0"
+            android:id="@+id/btn1H"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1H" />
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/btn24H"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="24H" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btn1W"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1W" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btn1M"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -131,7 +132,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/tempMes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -140,21 +141,32 @@
         app:layout_constraintTop_toTopOf="@+id/textView4" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/humMes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="0"
-        app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintStart_toStartOf="@+id/tempMes"
+        app:layout_constraintTop_toBottomOf="@+id/tempMes" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/presMes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="0"
-        app:layout_constraintStart_toStartOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintStart_toStartOf="@+id/humMes"
+        app:layout_constraintTop_toBottomOf="@+id/humMes" />
+
+    <TextView
+        android:id="@+id/sensor_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/chart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,7 +32,7 @@ public class TokenRepository {
     public void setToken(String token) {
 
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("KEY", token);
+        editor.putString("KEY", "Bearer " + token);
         editor.apply();
 
     }

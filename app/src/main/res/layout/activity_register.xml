@@ -103,7 +103,7 @@
         android:layout_margin="16dp"
         android:text="Register"
         app:layout_constraintEnd_toEndOf="@+id/rePasswordTextField"
-        app:layout_constraintTop_toBottomOf="@+id/rePasswordTextField" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxTerms" />
 
 
     <TextView
@@ -117,5 +117,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerButton" />
+
+    <CheckBox
+        android:id="@+id/checkBoxTerms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Terms"
+        app:layout_constraintStart_toStartOf="@+id/rePasswordTextField"
+        app:layout_constraintTop_toBottomOf="@+id/rePasswordTextField" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

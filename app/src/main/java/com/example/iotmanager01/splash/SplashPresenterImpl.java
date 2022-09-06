@@ -20,7 +20,7 @@ public class SplashPresenterImpl implements SplashPresenter{
         if (token.getToken().isEmpty()) {
             splashView.openLoginView();
         } else {
-            splashView.openGraphView();
+            splashView.openMainPageView();
         }
 
     }
