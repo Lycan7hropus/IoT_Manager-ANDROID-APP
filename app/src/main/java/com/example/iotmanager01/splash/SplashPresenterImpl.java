@@ -2,7 +2,7 @@ package com.example.iotmanager01.splash;
 
 import android.content.Context;
 
-import com.example.iotmanager01.TokenRepository;
+import com.example.iotmanager01.api.TokenRepository;
 
 public class SplashPresenterImpl implements SplashPresenter{
     SplashView splashView;

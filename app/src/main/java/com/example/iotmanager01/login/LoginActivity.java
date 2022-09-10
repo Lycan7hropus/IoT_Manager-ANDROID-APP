@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.iotmanager01.R;
 import com.example.iotmanager01.graph.GraphActivity;
 import com.example.iotmanager01.main_page.MainPageActivity;
+import com.example.iotmanager01.register.RegisterActivity;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class LoginActivity extends AppCompatActivity implements LoginView{
@@ -18,6 +20,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     private static final String TAG = "TAGOWE";
     TextInputEditText loginEditText, passwordEditText;
     Button loginButton;
+    TextView registerText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +32,17 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
         loginEditText = findViewById(R.id.loginEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
         loginButton = findViewById(R.id.loginButton);
+        registerText = findViewById(R.id.registerText);
+
 
         loginButton.setOnClickListener(view -> {
             presenter.loginUser();
+        });
+
+        registerText.setOnClickListener(view -> {
+            Log.d(TAG, "loginUser: openRegisterView");
+            Intent intent = new Intent(this, RegisterActivity.class);
+            startActivity(intent);
         });
 
 
@@ -69,6 +80,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
         Log.d(TAG, "loginUser: opengraphview");
         Intent intent = new Intent(this, MainPageActivity.class);
         startActivity(intent);
+
+    }
+
+    @Override
+    public void openRegisterPageView() {
 
     }
 }

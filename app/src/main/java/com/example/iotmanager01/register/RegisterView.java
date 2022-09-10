@@ -5,7 +5,8 @@ public interface RegisterView {
     String getEmail();
     String getPassword();
     String getRePassword();
-    String getTerms();
+    boolean getTerms();
     void errorView(String message);
-    void openMainPageView();
+    void openLoginView();
+
 }

@@ -3,8 +3,8 @@ package com.example.iotmanager01.login;
 import android.content.Context;
 import android.util.Log;
 
-import com.example.iotmanager01.TokenRepository;
-import com.example.iotmanager01.api.JsonLoginReqest;
+import com.example.iotmanager01.api.TokenRepository;
+import com.example.iotmanager01.api.model.JsonLoginRequest;
 import com.example.iotmanager01.api.model.LoginResponse;
 import com.example.iotmanager01.api.RestClient;
 
@@ -31,7 +31,7 @@ public class LoginPresenterImpl implements LoginPresenter, Callback<LoginRespons
     @Override
     public void loginUser() {
 
-        JsonLoginReqest jsonBody = new JsonLoginReqest(loginView.getLogin(), loginView.getPassword());
+        JsonLoginRequest jsonBody = new JsonLoginRequest(loginView.getLogin(), loginView.getPassword());
 
         restClient.start();
         restClient.callPostLogin(jsonBody, this);

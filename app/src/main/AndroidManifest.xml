@@ -14,6 +14,9 @@
         android:theme="@style/Theme.IotManager01"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".settings.SettingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".main_page.MainPageActivity"
             android:exported="false" />
         <activity

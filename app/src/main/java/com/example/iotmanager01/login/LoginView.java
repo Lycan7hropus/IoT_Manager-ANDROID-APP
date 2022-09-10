@@ -7,4 +7,5 @@ public interface LoginView {
     void loggedInView();
     void errorView(String message);
     void openMainPageView();
+    void openRegisterPageView();
 }

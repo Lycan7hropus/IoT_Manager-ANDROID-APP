@@ -8,7 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 import com.example.iotmanager01.R;
-import com.example.iotmanager01.TokenRepository;
+import com.example.iotmanager01.api.TokenRepository;
 import com.example.iotmanager01.api.RestClient;
 import com.example.iotmanager01.api.model.AllDataResponse;
 import com.example.iotmanager01.graph.graph_extras.Measurement;
@@ -66,7 +66,7 @@ public class GraphPresenterImpl implements GraphPresenter, Callback<List<AllData
 
     void delayedFunctionExecutor(Observable<Long> timeObservable){
         timeObservable.subscribe(new Observer<Long>() {
-
+        
             long time = 0; // variable for demonstating how much time has passed
 
             @Override
@@ -86,6 +86,7 @@ public class GraphPresenterImpl implements GraphPresenter, Callback<List<AllData
             @Override
             public void onComplete() {
                 callRestApi("LAST", graphView.getSensorId(),"all");
+                Log.d(TAG, "onComplete: delayed");
             }
         });
     }
@@ -223,14 +224,18 @@ public class GraphPresenterImpl implements GraphPresenter, Callback<List<AllData
     public void onResponse(Call<List<AllDataResponse>> call, Response<List<AllDataResponse>> response) {
         if (response.isSuccessful()) {
 
-            if(response.body().size()>1){
-                myData = response.body();
-                chartInit();
-            }else{
-                measurement.setData(response.body().get(0).temp.floatValue(),response.body().get(0).hum.floatValue(),response.body().get(0).pres.floatValue());
-                Log.d(TAG, "onResponse: " + measurement.print());
-                graphView.updateCurrentMeasurments(response.body().get(0).temp.toString(),response.body().get(0).hum.toString(),response.body().get(0).pres.toString());
-            }
+           if(!response.body().isEmpty()){
+               if(response.body().size()>1){
+                   myData = response.body();
+                   chartInit();
+               }else{
+                   measurement.setData(response.body().get(0).temp.floatValue(),response.body().get(0).hum.floatValue(),response.body().get(0).pres.floatValue());
+                   Log.d(TAG, "onResponse: " + measurement.print());
+                   graphView.updateCurrentMeasurments(response.body().get(0).temp.toString(),response.body().get(0).hum.toString(),response.body().get(0).pres.toString());
+               }
+           }else {
+               Log.d(TAG, "onResponse: empty");
+           }
 
 
 

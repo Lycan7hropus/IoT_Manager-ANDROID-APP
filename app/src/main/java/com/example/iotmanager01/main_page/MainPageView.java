@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface MainPageView {
     void openLoginView();
-    void fillListView(List<Sensor> listOfSensors);
+    void fillRecyclerView(List<Sensor> listOfSensors);
     void openGraphView(String sensorName, String sensor_id);
+    void openSettingsView(List<Sensor> listOfSensor);
 }

@@ -5,24 +5,19 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Toast;
 
-import com.example.iotmanager01.TokenRepository;
+import com.example.iotmanager01.api.TokenRepository;
 import com.example.iotmanager01.api.RestClient;
 import com.example.iotmanager01.api.model.InfoResponse;
 import com.example.iotmanager01.api.model.Sensor;
-import com.example.iotmanager01.graph.GraphView;
 
 import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainPagePresenterImpl implements MainPagePresenter, Callback<InfoResponse>, AdapterView.OnItemClickListener {
+public class MainPagePresenterImpl implements MainPagePresenter, Callback<InfoResponse> {
     private static final String TAG = "TAGOWE";
     MainPageView mainPageView;
     TokenRepository token;
@@ -56,6 +51,12 @@ public class MainPagePresenterImpl implements MainPagePresenter, Callback<InfoRe
     }
 
     @Override
+    public void openSettings() {
+
+        mainPageView.openSettingsView(listOfSensors);
+    }
+
+    @Override
     public void onResponse(Call<InfoResponse> call, Response<InfoResponse> response) {
         if (response.isSuccessful()) {
             //Log.d(TAG, "S onResponse: " + response.body().sensors.get(0).print());
@@ -64,7 +65,7 @@ public class MainPagePresenterImpl implements MainPagePresenter, Callback<InfoRe
 
 
             listOfSensors = response.body().sensors;
-            mainPageView.fillListView(listOfSensors);
+            mainPageView.fillRecyclerView(listOfSensors);
 
 
         } else {
@@ -86,8 +87,7 @@ public class MainPagePresenterImpl implements MainPagePresenter, Callback<InfoRe
     }
 
 
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        mainPageView.openGraphView(listOfSensors.get(i).getSensorName(), listOfSensors.get(i).getSensorId());
+    public void openMainPange(int position) {
+        mainPageView.openGraphView(listOfSensors.get(position).getSensorName(),listOfSensors.get(position).getSensorId());
     }
 }

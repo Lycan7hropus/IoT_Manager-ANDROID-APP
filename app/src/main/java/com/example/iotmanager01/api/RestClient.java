@@ -1,12 +1,13 @@
 package com.example.iotmanager01.api;
 
-import android.content.Context;
 import android.util.Log;
 
-import com.example.iotmanager01.TokenRepository;
 import com.example.iotmanager01.api.model.AllDataResponse;
 import com.example.iotmanager01.api.model.InfoResponse;
+import com.example.iotmanager01.api.model.JsonLoginRequest;
+import com.example.iotmanager01.api.model.JsonRegisterRequest;
 import com.example.iotmanager01.api.model.LoginResponse;
+import com.example.iotmanager01.api.model.RegisterResponse;
 import com.example.iotmanager01.login.RestClientCallback;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,9 +52,15 @@ public class RestClient {
 
     }
 
-    public void callPostLogin( JsonLoginReqest jsonBody, Callback<LoginResponse> callback){
+    public void callPostLogin(JsonLoginRequest jsonBody, Callback<LoginResponse> callback){
 
         Call<LoginResponse> call = service.postLogin(jsonBody);
+
+        call.enqueue(callback);
+    }
+    public void callPostRegister(JsonRegisterRequest jsonBody, Callback<RegisterResponse> callback){
+
+        Call<RegisterResponse> call = service.postRegister(jsonBody);
 
         call.enqueue(callback);
     }
@@ -71,10 +78,9 @@ public class RestClient {
             Call<List<AllDataResponse>> call = service.getAllMeasurements(period,id,type,token);
             call.enqueue(callback);
         }
-        
-
-
     }
+
+
 
 
 

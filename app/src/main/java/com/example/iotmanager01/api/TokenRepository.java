@@ -1,6 +1,4 @@
-package com.example.iotmanager01;
-
-import static android.provider.Settings.System.getString;
+package com.example.iotmanager01.api;
 
 import android.content.Context;
 import android.content.SharedPreferences;

@@ -13,13 +13,14 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         app:endIconMode="password_toggle"
-        app:layout_constraintEnd_toEndOf="@+id/loginTextField"
+        app:layout_constraintEnd_toEndOf="@+id/emailEditTextLayout"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="@+id/loginTextField"
-        app:layout_constraintTop_toBottomOf="@+id/loginTextField">
+        app:layout_constraintStart_toStartOf="@+id/emailEditTextLayout"
+        app:layout_constraintTop_toBottomOf="@+id/emailEditTextLayout">
 
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="password"
@@ -42,13 +43,14 @@
         app:layout_constraintVertical_bias="0.41">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/loginInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/loginTextField"
+        android:id="@+id/emailEditTextLayout"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -59,6 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/loginEditTextLayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -77,6 +80,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rePassInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="repeat password"
@@ -107,7 +111,7 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/loginText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
