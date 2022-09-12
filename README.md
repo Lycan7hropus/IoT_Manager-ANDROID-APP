@@ -19,4 +19,14 @@ Token is required to fetch data from server.
 
 <h2>GRAPH ACTIVITY </h2>
 
+In a request 3 parameters are sent
+<ul>
+  <li><b>PERIOD:</b> HOUR/DAY/WEEK/MONTH</li>
+  <li><b>ID:</b> SENSOR_ID</li>
+  <li><b>TYPE:</b> TEMP/HUM/PRES/ALL</li>
+</ul>
+The bearer token is sent in the authorization header. In database, token is assigned to specific user, server check if this user is 
+associated with sensor_id sent in parameter
+<br><br>
+
 ![image](https://user-images.githubusercontent.com/83671766/189606734-acc3faf0-7083-410e-9a06-427d96e4bd97.png)
