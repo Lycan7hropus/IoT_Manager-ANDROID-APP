@@ -4,7 +4,7 @@ Android application created to visualize esp8266 measurments on charts. Retrofit
 ![image](https://user-images.githubusercontent.com/83671766/189610323-67265cc6-a4c6-4a5e-93c3-8f73e59ff2c1.png)
 
 <h2>LOGIN ACTIVITY </h2>
-Opens if user isnt logged in. Validation take place on a server, android app sends login and password to server and wait for response, If credentials were valid, Bearer token is retrived.
+Open if user isn't logged in. Validation take place on a server, android app sends login and password to server and wait for response, If credentials were valid, Bearer token is retrived.
 Token is required to fetch data from server.
 
 ![image](https://user-images.githubusercontent.com/83671766/189605828-dc567900-7468-4184-aa9b-189e0852d08b.png)
