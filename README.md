@@ -8,7 +8,7 @@ This is app part of my IoT Manager project https://github.com/HomoLupus/IoT_Mana
 Open if user isn't logged in. Validation take place on a server, android app sends login and password to server and wait for response, If credentials were valid, Bearer token is retrived.
 Token is required to fetch data from server.
 
-![image](https://user-images.githubusercontent.com/83671766/189605828-dc567900-7468-4184-aa9b-189e0852d08b.png)
+![image](https://user-images.githubusercontent.com/83671766/189949780-6a9f9ae2-1c4f-41fb-9fcf-da224502dfbf.png)
 
 <h2>REGISTER ACTIVITY </h2>
 
