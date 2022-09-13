@@ -1,5 +1,6 @@
 # IoT_Manager-ANDROID-APP
-Android application created to visualize esp8266 measurments on charts. Retrofit is used to fetch data from PHP server REST API. Project created in accordance with MVP design pattern.
+Android application created to visualize esp8266 measurments on charts. Retrofit is used to fetch data from PHP server REST API. Project created in accordance with MVP design pattern. <br>
+This is app part of my IoT Manager project https://github.com/HomoLupus/IoT_Manager-WEBAPP-AND-SERVER
 
 ![image](https://user-images.githubusercontent.com/83671766/189610323-67265cc6-a4c6-4a5e-93c3-8f73e59ff2c1.png)
 
