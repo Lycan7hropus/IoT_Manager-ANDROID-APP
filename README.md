@@ -2,7 +2,7 @@
 Android application created to visualize esp8266 measurments on charts. Retrofit is used to fetch data from PHP server REST API. Project created in accordance with MVP design pattern. <br>
 This is app part of my IoT Manager project https://github.com/HomoLupus/IoT_Manager-WEBAPP-AND-SERVER
 
-![image](https://user-images.githubusercontent.com/83671766/189610323-67265cc6-a4c6-4a5e-93c3-8f73e59ff2c1.png)
+![image](https://github.com/Lycan7hropus/IoT_Manager-ANDROID-APP/assets/83671766/d50fa897-9786-4acd-88cd-d388baec8aa8)
 
 <h2>LOGIN ACTIVITY </h2>
 Open if user isn't logged in. Validation take place on a server, android app sends login and password to server and wait for response, If credentials were valid, Bearer token is retrived.
